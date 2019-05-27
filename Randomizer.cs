@@ -73,7 +73,7 @@ namespace Random_Generator
                 case 'r':
                     styleColor = generateRandomColor();
                     initColors();
-                    MessageBox.Show("Syle Colour Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Syle Color Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 //Triggers the "Generate" button
                 case ' ':
@@ -108,13 +108,20 @@ namespace Random_Generator
             btnGen.ForeColor = styleColor;
             btnClose.ForeColor = styleColor;
             btnMin.ForeColor = styleColor;
+            btnHelp.ForeColor = styleColor;
             intInput.ForeColor = styleColor;
             intInput.FocusHighlightColor = styleColor;
             intInput.Colors.Highlight = styleColor;
         }
 
+        private void BtnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Special Function keys: \n 1. 'h' Copies the current color hex code to the clipboard  \n 2. 'r' Refreshes application style color \n 3. 'SPACEBAR' Clicks the 'Generate' button \n\n(To make sure these keys function properly pls disable CAPS lock and be sure not to focus any control)\n\n This application is designed and coded by Davoleo", 
+                "Ya need help?", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
         //Generates a random number from 1 to the counter value
-		private void btnGen_Click(object sender, EventArgs e)
+        private void btnGen_Click(object sender, EventArgs e)
         {
             Random r = new Random(); 
             if (intInput != null)
