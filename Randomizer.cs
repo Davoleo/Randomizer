@@ -12,10 +12,10 @@ namespace Random_Generator
 {
     public partial class Randomizer : Form
     {
-        const int WM_NCHITTEST = 132;
-        const int HTCLIENT = 1;
-        const int HTCAPTION = 2;
-        int X, Y;
+        private const int WM_NCHITTEST = 132;
+        private const int HTCLIENT = 1;
+        private const int HTCAPTION = 2;
+        private int X, Y;
 
         private Color styleColor;
 
@@ -46,16 +46,8 @@ namespace Random_Generator
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Random r = new Random();
-            Color style = Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
-            styleColor = style;
-            BackColor = style;
-            btnGen.ForeColor = style;
-            btnClose.ForeColor = style;
-            btnMin.ForeColor = style;
-            intInput.ForeColor = style;
-            intInput.FocusHighlightColor = style;
-            intInput.Colors.Highlight = style;
+            styleColor = generateRandomColor();
+            initColors();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -72,19 +64,59 @@ namespace Random_Generator
 		{
 			switch (e.KeyChar)
 			{
-				case 'c':
-					Clipboard.SetText(styleColor.R.ToString("X") + styleColor.G.ToString("X") + styleColor.B.ToString("X"));
+                //Saves the style colour hexadecimal code in the clipboard
+				case 'h':
+					Clipboard.SetText(getExaDecimalColorValue(styleColor.R) + getExaDecimalColorValue(styleColor.G) + getExaDecimalColorValue(styleColor.B));
 					MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					break;
+                //Generates a new random style color
+                case 'r':
+                    styleColor = generateRandomColor();
+                    initColors();
+                    MessageBox.Show("Syle Colour Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                //Triggers the "Generate" button
+                case ' ':
+                    btnGen_Click(sender, e);
+                    break;
 				default:
-					MessageBox.Show("Error", "Error");
+					MessageBox.Show("Key not assigned to anything", "Huh?");
 					break;
 			}
 		}
 
-		private void btnGen_Click(object sender, EventArgs e)
+        //returns the respective padded hexadecimal value to a color value entry
+        private string getExaDecimalColorValue(byte colorEntry)
+        {
+            string colorString = colorEntry.ToString("X");
+            if (colorString.Length < 2)
+                colorString.PadLeft(1, '0');
+            return colorString;
+        }
+
+        //Generates a new random color
+        private Color generateRandomColor()
         {
             Random r = new Random();
+            return Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
+        }
+
+        //Sets the style color to all the components of the application
+        private void initColors()
+        {
+            BackColor = styleColor;
+            btnGen.ForeColor = styleColor;
+            btnClose.ForeColor = styleColor;
+            btnMin.ForeColor = styleColor;
+            intInput.ForeColor = styleColor;
+            intInput.FocusHighlightColor = styleColor;
+            intInput.Colors.Highlight = styleColor;
+        }
+
+        //Generates a random number from 1 to the counter value
+		private void btnGen_Click(object sender, EventArgs e)
+        {
+            Random r = new Random(); 
             if (intInput != null)
                 lblResult.Text = r.Next(1, intInput.Value + 1).ToString();
             else
