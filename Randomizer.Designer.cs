@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.btnGen = new System.Windows.Forms.Button();
-            this.intInput = new DevComponents.Editors.IntegerInput();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnMin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.intInput = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.intInput)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,22 +51,6 @@
             this.btnGen.UseVisualStyleBackColor = false;
             this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
             this.btnGen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
-            // 
-            // intInput
-            // 
-            // 
-            // 
-            // 
-            this.intInput.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.intInput.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.intInput.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.intInput.Location = new System.Drawing.Point(12, 15);
-            this.intInput.MinValue = 1;
-            this.intInput.Name = "intInput";
-            this.intInput.ShowUpDown = true;
-            this.intInput.Size = new System.Drawing.Size(100, 20);
-            this.intInput.TabIndex = 1;
-            this.intInput.Value = 1;
             // 
             // lblResult
             // 
@@ -121,17 +105,41 @@
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
             // 
+            // intInput
+            // 
+            this.intInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.intInput.Location = new System.Drawing.Point(12, 17);
+            this.intInput.Maximum = new decimal(new int[] {
+            2147483646,
+            0,
+            0,
+            0});
+            this.intInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.intInput.Name = "intInput";
+            this.intInput.Size = new System.Drawing.Size(100, 20);
+            this.intInput.TabIndex = 7;
+            this.intInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.intInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Randomizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(238, 93);
+            this.Controls.Add(this.intInput);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.lblResult);
-            this.Controls.Add(this.intInput);
             this.Controls.Add(this.btnGen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -151,11 +159,11 @@
         #endregion
 
         private System.Windows.Forms.Button btnGen;
-        private DevComponents.Editors.IntegerInput intInput;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnMin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.NumericUpDown intInput;
     }
 }
 

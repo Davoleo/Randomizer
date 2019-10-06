@@ -66,7 +66,7 @@ namespace Random_Generator
 			{
                 //Saves the style colour hexadecimal code in the clipboard
 				case 'h':
-					Clipboard.SetText(getExaDecimalColorValue(styleColor.R) + getExaDecimalColorValue(styleColor.G) + getExaDecimalColorValue(styleColor.B));
+					Clipboard.SetText(styleColor.R.ToString("2X") + styleColor.G.ToString("2X") + styleColor.B.ToString("2X"));
 					MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					break;
                 //Generates a new random style color
@@ -85,15 +85,6 @@ namespace Random_Generator
 			}
 		}
 
-        //returns the respective padded hexadecimal value to a color value entry
-        private string getExaDecimalColorValue(byte colorEntry)
-        {
-            string colorString = colorEntry.ToString("X");
-            if (colorString.Length < 2)
-                colorString.PadLeft(1, '0');
-            return colorString;
-        }
-
         //Generates a new random color
         private Color generateRandomColor()
         {
@@ -110,8 +101,9 @@ namespace Random_Generator
             btnMin.ForeColor = styleColor;
             btnHelp.ForeColor = styleColor;
             intInput.ForeColor = styleColor;
-            intInput.FocusHighlightColor = styleColor;
-            intInput.Colors.Highlight = styleColor;
+            //Used with the old DotNetBar IntegerInput
+            //intInput.FocusHighlightColor = styleColor;
+            //intInput.Colors.Highlight = styleColor;
         }
 
         private void BtnHelp_Click(object sender, EventArgs e)
@@ -125,7 +117,7 @@ namespace Random_Generator
         {
             Random r = new Random(); 
             if (intInput != null)
-                lblResult.Text = r.Next(1, intInput.Value + 1).ToString();
+                lblResult.Text = r.Next(1, (int) intInput.Value + 1).ToString();
             else
                 MessageBox.Show("Invalid Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
