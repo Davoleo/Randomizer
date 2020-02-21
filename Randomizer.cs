@@ -19,55 +19,98 @@ namespace Random_Generator
 
         private Color styleColor;
 
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case WM_NCHITTEST:
-                    base.WndProc(ref m);
-                    if ((m.Result == (IntPtr)HTCLIENT))
-                    {
-                        m.Result = (IntPtr)HTCAPTION;
-                    }
-
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
-
         public Randomizer()
         {
             InitializeComponent();
         }
 
+        #region Application Controls
+
+        /// <summary>
+        /// Handles Application Exit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        /// <summary>
+        /// Handles Window Minimization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        /// <summary>
+        /// Handles click on the Help button
+        /// Shows a Message box with useful info on using the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(@"Special Function keys:
+1. 'h' Copies the current color hex code to the clipboard
+2. 'r' Refreshes application style color
+3. 'g' Clicks the 'Generate' button
+4. 's' Sets the current style color as default highlight color
+
+This application was designed and coded by Davoleo", 
+
+                @"Need help?", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        /// <summary>
+        /// Handles the generation of random numbers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGen_Click(object sender, EventArgs e)
+        {
+            Random r = new Random(); 
+            if (intInput != null)
+                lblResult.Text = r.Next(1, (int) intInput.Value + 1).ToString();
+            else
+                MessageBox.Show("Invalid Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+        }
+
+        #endregion
+
+
+        #region Other Event Handlers
+
+        /// <summary>
+        /// Generates the initial random color and calls the function that sets it to all the application controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             styleColor = generateRandomColor();
             initColors();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the pressing of function keys to do specific actions inside of the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Randomizer_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Close();
-        }
-
-        private void btnMin_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-		private void Randomizer_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			switch (e.KeyChar)
-			{
+            switch (e.KeyChar)
+            {
                 //Saves the style colour hexadecimal code in the clipboard
                 case 'h':
                     string colorText = styleColor.R.ToString("X2") + styleColor.G.ToString("X2") + styleColor.B.ToString("X2");
-					Clipboard.SetText(colorText);
-					MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-					break;
+                    Clipboard.SetText(colorText);
+                    MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
                 //Generates a new random style color
                 case 'r':
                     styleColor = generateRandomColor();
@@ -89,20 +132,51 @@ namespace Random_Generator
                         ? "Windows Highlight Color has been restored to its original state!"
                         : "Windows Highlight Color has been updated to match the current style color!");
                     break;
-				default:
-					MessageBox.Show("Key not assigned to anything", "Huh?");
-					break;
-			}
-		}
+                default:
+                    MessageBox.Show("Key not assigned to anything", "Huh?");
+                    break;
+            }
+        }
 
-        //Generates a new random color
+        #endregion
+
+        #region Other Functions
+
+        /// <summary>
+        /// Handles Window Dragging from the body of the application form
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case WM_NCHITTEST:
+                    base.WndProc(ref m);
+                    if ((m.Result == (IntPtr)HTCLIENT))
+                    {
+                        m.Result = (IntPtr)HTCAPTION;
+                    }
+
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Generates a random RGB color
+        /// </summary>
+        /// <returns>A random RGB color</returns>
         private Color generateRandomColor()
         {
             Random r = new Random();
             return Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
         }
 
-        //Sets the style color to all the components of the application
+        /// <summary>
+        /// Sets the style color to all the UI Components of the application
+        /// </summary>
         private void initColors()
         {
             BackColor = styleColor;
@@ -116,23 +190,17 @@ namespace Random_Generator
             //intInput.Colors.Highlight = styleColor;
         }
 
-        private void BtnHelp_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(@"Special Function keys:
-1. 'h' Copies the current color hex code to the clipboard
-2. 'r' Refreshes application style color
-3. 'g' Clicks the 'Generate' button
-4. 's' Sets the current style color as default highlight color
+        #endregion
 
-This application was designed and coded by Davoleo", 
-
-                @"Need help?", MessageBoxButtons.OK, MessageBoxIcon.Question);
-        }
-
+        #region Highlight Color Change Functions
 
         [DllImport("user32.dll")]
         static extern bool SetSysColors(int cElements, int[] lpaElements, uint[] lpaRgbValues);
 
+        /// <summary>
+        /// Changes the Default Windows Selection color to the passed parameter
+        /// </summary>
+        /// <param name="color">The new value applied as highlight color</param>
         private void ChangeSelectionColor(Color color)
         {
             //const int COLOR_HIGHLIGHTTEXT = 14;
@@ -153,20 +221,14 @@ This application was designed and coded by Davoleo",
         [DllImport("user32.dll")]
         static extern uint GetSysColor(int nIndex);
 
+        /// <summary>
+        /// </summary>
+        /// <returns>The current highlight color</returns>
         private Color GetCurrentSelectionColor()
         {
             return ColorTranslator.FromWin32((int) GetSysColor(COLOR_HIGHLIGHT));
         }
 
-        //Generates a random number from 1 to the counter value
-        private void btnGen_Click(object sender, EventArgs e)
-        {
-            Random r = new Random(); 
-            if (intInput != null)
-                lblResult.Text = r.Next(1, (int) intInput.Value + 1).ToString();
-            else
-                MessageBox.Show("Invalid Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-        }
+        #endregion
     }
 }
