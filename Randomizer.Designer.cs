@@ -76,6 +76,7 @@
             this.btnMin.Text = "_";
             this.btnMin.UseVisualStyleBackColor = false;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
+            this.btnMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
             // 
             // btnClose
             // 
@@ -90,6 +91,7 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.button1_Click);
+            this.btnClose.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
             // 
             // btnHelp
             // 
@@ -104,6 +106,7 @@
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
+            this.btnHelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
             // 
             // intInput
             // 
@@ -128,6 +131,7 @@
             0,
             0,
             0});
+            this.intInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
             // 
             // Randomizer
             // 

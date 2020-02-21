@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+// ReSharper disable InconsistentNaming
+// ReSharper disable LocalizableElement
 
 namespace Random_Generator
 {
@@ -18,11 +15,11 @@ namespace Random_Generator
         private const int HTCLIENT = 1;
         private const int HTCAPTION = 2;
 
-        private int X, Y;
+        private const int COLOR_HIGHLIGHT = 13;
 
         private Color styleColor;
 
-        protected override void WndProc(ref System.Windows.Forms.Message m)
+        protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
             {
@@ -40,8 +37,6 @@ namespace Random_Generator
             }
         }
 
-        private System.Drawing.Point newpoint = new System.Drawing.Point();
-
         public Randomizer()
         {
             InitializeComponent();
@@ -55,7 +50,6 @@ namespace Random_Generator
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ChangeSelectColor(Color.FromArgb(7, 123, 220));
             Close();
         }
 
@@ -70,7 +64,8 @@ namespace Random_Generator
 			{
                 //Saves the style colour hexadecimal code in the clipboard
                 case 'h':
-					Clipboard.SetText(styleColor.R.ToString("X2") + styleColor.G.ToString("X2") + styleColor.B.ToString("X2"));
+                    string colorText = styleColor.R.ToString("X2") + styleColor.G.ToString("X2") + styleColor.B.ToString("X2");
+					Clipboard.SetText(colorText);
 					MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
 					break;
                 //Generates a new random style color
@@ -80,8 +75,19 @@ namespace Random_Generator
                     MessageBox.Show("Syle Color Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 //Triggers the "Generate" button
-                case ' ':
+                case 'g':
                     btnGen_Click(sender, e);
+                    break;
+                case 's':
+                    Color currentColor = GetCurrentSelectionColor();
+
+                    ChangeSelectionColor(styleColor == currentColor
+                        ? Color.FromArgb(7, 123, 220)
+                        : styleColor);
+
+                    MessageBox.Show(styleColor == currentColor
+                        ? "Windows Highlight Color has been restored to its original state!"
+                        : "Windows Highlight Color has been updated to match the current style color!");
                     break;
 				default:
 					MessageBox.Show("Key not assigned to anything", "Huh?");
@@ -105,7 +111,6 @@ namespace Random_Generator
             btnMin.ForeColor = styleColor;
             btnHelp.ForeColor = styleColor;
             intInput.ForeColor = styleColor;
-            ChangeSelectColor(styleColor);
             //Used with the old DotNetBar IntegerInput
             //intInput.FocusHighlightColor = styleColor;
             //intInput.Colors.Highlight = styleColor;
@@ -113,18 +118,24 @@ namespace Random_Generator
 
         private void BtnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Special Function keys: \n 1. 'h' Copies the current color hex code to the clipboard  \n 2. 'r' Refreshes application style color \n 3. 'SPACEBAR' Clicks the 'Generate' button \n\n(To make sure these keys function properly pls disable CAPS lock and be sure not to focus any control)\n\n This application is designed and coded by Davoleo", 
-                "Ya need help?", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MessageBox.Show(@"Special Function keys:
+1. 'h' Copies the current color hex code to the clipboard
+2. 'r' Refreshes application style color
+3. 'g' Clicks the 'Generate' button
+4. 's' Sets the current style color as default highlight color
+
+This application was designed and coded by Davoleo", 
+
+                @"Need help?", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
 
         [DllImport("user32.dll")]
         static extern bool SetSysColors(int cElements, int[] lpaElements, uint[] lpaRgbValues);
 
-        private void ChangeSelectColor(Color color)
+        private void ChangeSelectionColor(Color color)
         {
-            const int COLOR_HIGHLIGHT = 13;
-            const int COLOR_HIGHLIGHTTEXT = 14;
+            //const int COLOR_HIGHLIGHTTEXT = 14;
             // You will have to set the HighlightText colour if you want to change that as well.
 
 
@@ -137,7 +148,14 @@ namespace Random_Generator
 
             //set the desktop color using p/invoke
             SetSysColors(elements.Length, elements, colours.ToArray());
+        }
 
+        [DllImport("user32.dll")]
+        static extern uint GetSysColor(int nIndex);
+
+        private Color GetCurrentSelectionColor()
+        {
+            return ColorTranslator.FromWin32((int) GetSysColor(COLOR_HIGHLIGHT));
         }
 
         //Generates a random number from 1 to the counter value
