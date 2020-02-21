@@ -82,7 +82,6 @@ This application was designed and coded by Davoleo",
 
         #endregion
 
-
         #region Other Event Handlers
 
         /// <summary>
@@ -107,21 +106,25 @@ This application was designed and coded by Davoleo",
             {
                 //Saves the style colour hexadecimal code in the clipboard
                 case 'h':
+                case 'H':
                     string colorText = styleColor.R.ToString("X2") + styleColor.G.ToString("X2") + styleColor.B.ToString("X2");
                     Clipboard.SetText(colorText);
                     MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 //Generates a new random style color
                 case 'r':
+                case 'R':
                     styleColor = generateRandomColor();
                     initColors();
                     MessageBox.Show("Syle Color Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 //Triggers the "Generate" button
                 case 'g':
+                case 'G':
                     btnGen_Click(sender, e);
                     break;
                 case 's':
+                case 'S':
                     Color currentColor = GetCurrentSelectionColor();
 
                     ChangeSelectionColor(styleColor == currentColor
