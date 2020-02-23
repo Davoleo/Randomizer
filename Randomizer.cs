@@ -24,7 +24,7 @@ namespace Random_Generator
             InitializeComponent();
         }
 
-        #region Application Controls
+        #region Application Components
 
         /// <summary>
         /// Handles Application Exit
@@ -58,7 +58,7 @@ namespace Random_Generator
 1. 'h' Copies the current color hex code to the clipboard
 2. 'r' Refreshes application style color
 3. 'g' Clicks the 'Generate' button
-4. 's' Sets the current style color as default highlight color
+4. 's' Sets the current style color as default text highlight color
 
 This application was designed and coded by Davoleo", 
 
@@ -136,7 +136,8 @@ This application was designed and coded by Davoleo",
                         : "Windows Highlight Color has been updated to match the current style color!");
                     break;
                 default:
-                    MessageBox.Show("Key not assigned to anything", "Huh?");
+                    if (!(sender is NumericUpDown))
+                        MessageBox.Show("Need help? Click on the '?' button to know the available keybinds", "This key doesn't do anything!");
                     break;
             }
         }
