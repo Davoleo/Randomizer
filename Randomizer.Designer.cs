@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Randomizer));
             this.btnGen = new System.Windows.Forms.Button();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnMin = new System.Windows.Forms.Button();
@@ -146,6 +147,7 @@
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.btnGen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Randomizer";

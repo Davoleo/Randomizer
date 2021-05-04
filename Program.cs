@@ -9,7 +9,7 @@ namespace Random_Generator
     static class Program
     {
         /// <summary>
-        /// Punto di ingresso principale dell'applicazione.
+        /// Starting point of the application
         /// </summary>
         [STAThread]
         static void Main()
