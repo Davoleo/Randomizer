@@ -47,7 +47,7 @@
             this.btnGen.Location = new System.Drawing.Point(12, 53);
             this.btnGen.Name = "btnGen";
             this.btnGen.Size = new System.Drawing.Size(100, 30);
-            this.btnGen.TabIndex = 0;
+            this.btnGen.TabIndex = 2;
             this.btnGen.Text = "Generate";
             this.btnGen.UseVisualStyleBackColor = false;
             this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
@@ -61,7 +61,7 @@
             this.lblResult.Location = new System.Drawing.Point(152, 14);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(42, 20);
-            this.lblResult.TabIndex = 2;
+            this.lblResult.TabIndex = 1;
             this.lblResult.Text = "■■■";
             // 
             // btnMin
@@ -103,7 +103,7 @@
             this.btnHelp.Location = new System.Drawing.Point(124, 53);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(30, 30);
-            this.btnHelp.TabIndex = 6;
+            this.btnHelp.TabIndex = 3;
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
@@ -125,7 +125,7 @@
             0});
             this.intInput.Name = "intInput";
             this.intInput.Size = new System.Drawing.Size(100, 20);
-            this.intInput.TabIndex = 7;
+            this.intInput.TabIndex = 0;
             this.intInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.intInput.Value = new decimal(new int[] {
             1,
