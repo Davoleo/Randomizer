@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562822013C4B0694B7AF5F73 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 56282E83FEB85A9BE92EB323 /* .gitignore */; };
 		6BF0C9EC2827D18500163E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C9EB2827D18500163E04 /* AppDelegate.m */; };
 		6BF0C9EF2827D18500163E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C9EE2827D18500163E04 /* ViewController.m */; };
 		6BF0C9F12827D18600163E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF0C9F02827D18600163E04 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56282E83FEB85A9BE92EB323 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		6BF0C9E72827D18500163E04 /* Randomizer-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomizer-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BF0C9EA2827D18500163E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6BF0C9EB2827D18500163E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 			children = (
 				6BF0C9E92827D18500163E04 /* Randomizer-MacOS */,
 				6BF0C9E82827D18500163E04 /* Products */,
+				56282E83FEB85A9BE92EB323 /* .gitignore */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +130,7 @@
 			files = (
 				6BF0C9F12827D18600163E04 /* Assets.xcassets in Resources */,
 				6BF0C9F42827D18600163E04 /* Main.storyboard in Resources */,
+				562822013C4B0694B7AF5F73 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
