@@ -3,67 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5628222FC9FBCAFA61353C00 /* Randomizer_MacOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56282FDD4B12D7380C7E6A2E /* Randomizer_MacOSTests.swift */; };
-		562824674E7A546435DFF324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5628240DD315AA0A80FE3B11 /* Assets.xcassets */; };
-		562825637BCD275B80F1248A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562829E1383C5F34D6C854C0 /* Main.storyboard */; };
-		562828010CB81E7AB1198068 /* Randomizer_MacOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562825FBC08D14D8CF254EC7 /* Randomizer_MacOSUITests.swift */; };
-		5628282F3ADC0231C35A5C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56282801743F7453034F800F /* AppDelegate.swift */; };
-		56282A301FB4041314814A7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56282295FCDA45DF6772CFC6 /* ViewController.swift */; };
+		6BF0C9EC2827D18500163E04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C9EB2827D18500163E04 /* AppDelegate.m */; };
+		6BF0C9EF2827D18500163E04 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C9EE2827D18500163E04 /* ViewController.m */; };
+		6BF0C9F12827D18600163E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BF0C9F02827D18600163E04 /* Assets.xcassets */; };
+		6BF0C9F42827D18600163E04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF0C9F22827D18600163E04 /* Main.storyboard */; };
+		6BF0C9F62827D18600163E04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BF0C9F52827D18600163E04 /* main.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		562820FD02B70E7DD188A822 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5628294275F3F022F65CE8CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5628246F2642637D840D3F68;
-			remoteInfo = "Randomizer-MacOS";
-		};
-		56282CC0819968DE818C4C17 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5628294275F3F022F65CE8CC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5628246F2642637D840D3F68;
-			remoteInfo = "Randomizer-MacOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		5628209F6E55A1634CA80399 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		562820F9E41329F1FFCF3F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		56282295FCDA45DF6772CFC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		562823CC2BC82DCA34AA95F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		5628240DD315AA0A80FE3B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		562825D9314F7696BC1101F0 /* Randomizer_MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Randomizer_MacOS.entitlements; sourceTree = "<group>"; };
-		562825FBC08D14D8CF254EC7 /* Randomizer_MacOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Randomizer_MacOSUITests.swift; sourceTree = "<group>"; };
-		56282801743F7453034F800F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		562828D2D029E5FB12113343 /* Randomizer-MacOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Randomizer-MacOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		562829C3B624DC09796FA0A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
-		56282AD06C93F5E0C04981BB /* Randomizer-MacOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Randomizer-MacOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56282B5B26895C6976DA6C7E /* Randomizer-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomizer-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		56282FDD4B12D7380C7E6A2E /* Randomizer_MacOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Randomizer_MacOSTests.swift; sourceTree = "<group>"; };
+		6BF0C9E72827D18500163E04 /* Randomizer-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Randomizer-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BF0C9EA2827D18500163E04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6BF0C9EB2827D18500163E04 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6BF0C9ED2827D18500163E04 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6BF0C9EE2827D18500163E04 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6BF0C9F02827D18600163E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6BF0C9F32827D18600163E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6BF0C9F52827D18600163E04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6BF0C9F72827D18600163E04 /* Randomizer_MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Randomizer_MacOS.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5628260C3B3E39D4D7EB2E8D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56282877F2075D4A44287BA1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56282F3FF2E2AAB58D25305E /* Frameworks */ = {
+		6BF0C9E42827D18500163E04 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,103 +37,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5628236913ECE468E646E7C0 = {
+		6BF0C9DE2827D18400163E04 = {
 			isa = PBXGroup;
 			children = (
-				56282D9C3F124B66FE2F4798 /* Products */,
-				5628298BF727B41E5F28E50E /* Randomizer-MacOS */,
-				5628238A4DFD2670A70BC365 /* Randomizer-MacOSTests */,
-				56282EA3F8DE0725024C4E68 /* Randomizer-MacOSUITests */,
+				6BF0C9E92827D18500163E04 /* Randomizer-MacOS */,
+				6BF0C9E82827D18500163E04 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5628238A4DFD2670A70BC365 /* Randomizer-MacOSTests */ = {
+		6BF0C9E82827D18500163E04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				562829C3B624DC09796FA0A9 /* Info.plist */,
-				56282FDD4B12D7380C7E6A2E /* Randomizer_MacOSTests.swift */,
-			);
-			path = "Randomizer-MacOSTests";
-			sourceTree = "<group>";
-		};
-		5628298BF727B41E5F28E50E /* Randomizer-MacOS */ = {
-			isa = PBXGroup;
-			children = (
-				562820F9E41329F1FFCF3F36 /* Info.plist */,
-				5628240DD315AA0A80FE3B11 /* Assets.xcassets */,
-				562825D9314F7696BC1101F0 /* Randomizer_MacOS.entitlements */,
-				56282801743F7453034F800F /* AppDelegate.swift */,
-				562829E1383C5F34D6C854C0 /* Main.storyboard */,
-				56282295FCDA45DF6772CFC6 /* ViewController.swift */,
-			);
-			path = "Randomizer-MacOS";
-			sourceTree = "<group>";
-		};
-		56282D9C3F124B66FE2F4798 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				56282B5B26895C6976DA6C7E /* Randomizer-MacOS.app */,
-				56282AD06C93F5E0C04981BB /* Randomizer-MacOSTests.xctest */,
-				562828D2D029E5FB12113343 /* Randomizer-MacOSUITests.xctest */,
+				6BF0C9E72827D18500163E04 /* Randomizer-MacOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		56282EA3F8DE0725024C4E68 /* Randomizer-MacOSUITests */ = {
+		6BF0C9E92827D18500163E04 /* Randomizer-MacOS */ = {
 			isa = PBXGroup;
 			children = (
-				562823CC2BC82DCA34AA95F0 /* Info.plist */,
-				562825FBC08D14D8CF254EC7 /* Randomizer_MacOSUITests.swift */,
+				6BF0C9EA2827D18500163E04 /* AppDelegate.h */,
+				6BF0C9EB2827D18500163E04 /* AppDelegate.m */,
+				6BF0C9ED2827D18500163E04 /* ViewController.h */,
+				6BF0C9EE2827D18500163E04 /* ViewController.m */,
+				6BF0C9F02827D18600163E04 /* Assets.xcassets */,
+				6BF0C9F22827D18600163E04 /* Main.storyboard */,
+				6BF0C9F52827D18600163E04 /* main.m */,
+				6BF0C9F72827D18600163E04 /* Randomizer_MacOS.entitlements */,
 			);
-			path = "Randomizer-MacOSUITests";
+			path = "Randomizer-MacOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		56282236275C72004865154E /* Randomizer-MacOSTests */ = {
+		6BF0C9E62827D18500163E04 /* Randomizer-MacOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 562826A5FDCA5E3E036B0482 /* Build configuration list for PBXNativeTarget "Randomizer-MacOSTests" */;
+			buildConfigurationList = 6BF0C9FA2827D18600163E04 /* Build configuration list for PBXNativeTarget "Randomizer-MacOS" */;
 			buildPhases = (
-				562821730A18536742A7646C /* Sources */,
-				5628260C3B3E39D4D7EB2E8D /* Frameworks */,
-				56282E8249F137729DC1DA24 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				56282621EA4B0DCC4140AA62 /* PBXTargetDependency */,
-			);
-			name = "Randomizer-MacOSTests";
-			productName = "Randomizer-MacOSTests";
-			productReference = 56282AD06C93F5E0C04981BB /* Randomizer-MacOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		562823861BFDF2CA90FA1139 /* Randomizer-MacOSUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 56282AB8271DCF8F701123F6 /* Build configuration list for PBXNativeTarget "Randomizer-MacOSUITests" */;
-			buildPhases = (
-				56282DB1FEBCDECE4917E21F /* Sources */,
-				56282F3FF2E2AAB58D25305E /* Frameworks */,
-				562826A8E9500365A861B4E5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				562820579ACD54939E2C88C5 /* PBXTargetDependency */,
-			);
-			name = "Randomizer-MacOSUITests";
-			productName = "Randomizer-MacOSUITests";
-			productReference = 562828D2D029E5FB12113343 /* Randomizer-MacOSUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		5628246F2642637D840D3F68 /* Randomizer-MacOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 562828D5938CA19D9A95D147 /* Build configuration list for PBXNativeTarget "Randomizer-MacOS" */;
-			buildPhases = (
-				562825F1A67F2DDE528A65FB /* Sources */,
-				56282877F2075D4A44287BA1 /* Frameworks */,
-				56282A08D2E4F638E4698586 /* Resources */,
+				6BF0C9E32827D18500163E04 /* Sources */,
+				6BF0C9E42827D18500163E04 /* Frameworks */,
+				6BF0C9E52827D18500163E04 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -177,109 +85,71 @@
 			);
 			name = "Randomizer-MacOS";
 			productName = "Randomizer-MacOS";
-			productReference = 56282B5B26895C6976DA6C7E /* Randomizer-MacOS.app */;
+			productReference = 6BF0C9E72827D18500163E04 /* Randomizer-MacOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5628294275F3F022F65CE8CC /* Project object */ = {
+		6BF0C9DF2827D18400163E04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					6BF0C9E62827D18500163E04 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
 			};
-			buildConfigurationList = 56282F8DB5B895BC2D4469CA /* Build configuration list for PBXProject "Randomizer-MacOS" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			buildConfigurationList = 6BF0C9E22827D18400163E04 /* Build configuration list for PBXProject "Randomizer-MacOS" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
-			mainGroup = 5628236913ECE468E646E7C0;
-			productRefGroup = 56282D9C3F124B66FE2F4798 /* Products */;
+			mainGroup = 6BF0C9DE2827D18400163E04;
+			productRefGroup = 6BF0C9E82827D18500163E04 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5628246F2642637D840D3F68 /* Randomizer-MacOS */,
-				56282236275C72004865154E /* Randomizer-MacOSTests */,
-				562823861BFDF2CA90FA1139 /* Randomizer-MacOSUITests */,
+				6BF0C9E62827D18500163E04 /* Randomizer-MacOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		562826A8E9500365A861B4E5 /* Resources */ = {
+		6BF0C9E52827D18500163E04 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56282A08D2E4F638E4698586 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				562824674E7A546435DFF324 /* Assets.xcassets in Resources */,
-				562825637BCD275B80F1248A /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56282E8249F137729DC1DA24 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				6BF0C9F12827D18600163E04 /* Assets.xcassets in Resources */,
+				6BF0C9F42827D18600163E04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		562821730A18536742A7646C /* Sources */ = {
+		6BF0C9E32827D18500163E04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5628222FC9FBCAFA61353C00 /* Randomizer_MacOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		562825F1A67F2DDE528A65FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5628282F3ADC0231C35A5C32 /* AppDelegate.swift in Sources */,
-				56282A301FB4041314814A7E /* ViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56282DB1FEBCDECE4917E21F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				562828010CB81E7AB1198068 /* Randomizer_MacOSUITests.swift in Sources */,
+				6BF0C9EF2827D18500163E04 /* ViewController.m in Sources */,
+				6BF0C9F62827D18600163E04 /* main.m in Sources */,
+				6BF0C9EC2827D18500163E04 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		562820579ACD54939E2C88C5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5628246F2642637D840D3F68 /* Randomizer-MacOS */;
-			targetProxy = 56282CC0819968DE818C4C17 /* PBXContainerItemProxy */;
-		};
-		56282621EA4B0DCC4140AA62 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5628246F2642637D840D3F68 /* Randomizer-MacOS */;
-			targetProxy = 562820FD02B70E7DD188A822 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		562829E1383C5F34D6C854C0 /* Main.storyboard */ = {
+		6BF0C9F22827D18600163E04 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5628209F6E55A1634CA80399 /* Base */,
+				6BF0C9F32827D18600163E04 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -287,42 +157,13 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5628285607421D367D0FA571 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Randomizer-MacOS.app/Contents/MacOS/Randomizer-MacOS";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Randomizer-MacOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.davoleo.Randomizer-MacOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
-		5628293C533B0F0115C80F2E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Randomizer-MacOS.app/Contents/MacOS/Randomizer-MacOS";
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Randomizer-MacOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.davoleo.Randomizer-MacOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		56282A03189906FCF9A92837 /* Debug */ = {
+		6BF0C9F82827D18600163E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -366,24 +207,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		56282B4672E2A33A5BE44567 /* Release */ = {
+		6BF0C9F92827D18600163E04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -421,110 +259,83 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
-		56282BA380300EDEAD3A5BE8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Randomizer-MacOSUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.davoleo.Randomizer-MacOSUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Randomizer-MacOS";
-			};
-			name = Release;
-		};
-		56282D2A15E22675BEC9A408 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Randomizer-MacOSUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.davoleo.Randomizer-MacOSUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Randomizer-MacOS";
-			};
-			name = Debug;
-		};
-		56282DDA06A587042DD3304B /* Debug */ = {
+		6BF0C9FB2827D18600163E04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Randomizer-MacOS/Randomizer_MacOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Randomizer-MacOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.davoleo.Randomizer-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Debug;
 		};
-		56282F6A047D7EFB94784BC9 /* Release */ = {
+		6BF0C9FC2827D18600163E04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Randomizer-MacOS/Randomizer_MacOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Randomizer-MacOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.davoleo.Randomizer-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		562826A5FDCA5E3E036B0482 /* Build configuration list for PBXNativeTarget "Randomizer-MacOSTests" */ = {
+		6BF0C9E22827D18400163E04 /* Build configuration list for PBXProject "Randomizer-MacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5628293C533B0F0115C80F2E /* Debug */,
-				5628285607421D367D0FA571 /* Release */,
+				6BF0C9F82827D18600163E04 /* Debug */,
+				6BF0C9F92827D18600163E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		562828D5938CA19D9A95D147 /* Build configuration list for PBXNativeTarget "Randomizer-MacOS" */ = {
+		6BF0C9FA2827D18600163E04 /* Build configuration list for PBXNativeTarget "Randomizer-MacOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				56282DDA06A587042DD3304B /* Debug */,
-				56282F6A047D7EFB94784BC9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		56282AB8271DCF8F701123F6 /* Build configuration list for PBXNativeTarget "Randomizer-MacOSUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56282D2A15E22675BEC9A408 /* Debug */,
-				56282BA380300EDEAD3A5BE8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		56282F8DB5B895BC2D4469CA /* Build configuration list for PBXProject "Randomizer-MacOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				56282A03189906FCF9A92837 /* Debug */,
-				56282B4672E2A33A5BE44567 /* Release */,
+				6BF0C9FB2827D18600163E04 /* Debug */,
+				6BF0C9FC2827D18600163E04 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5628294275F3F022F65CE8CC /* Project object */;
+	rootObject = 6BF0C9DF2827D18400163E04 /* Project object */;
 }
