@@ -1,8 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Security;
+using System.Security.AccessControl;
 using System.Windows.Forms;
+using Microsoft.Win32;
+
 // ReSharper disable InconsistentNaming
 // ReSharper disable LocalizableElement
 
@@ -11,17 +15,22 @@ namespace Random_Generator
 
     public partial class Randomizer : Form
     {
+        //Body drag values
         private const int WM_NCHITTEST = 132;
         private const int HTCLIENT = 1;
         private const int HTCAPTION = 2;
 
-        private const int COLOR_HIGHLIGHT = 13;
+        private readonly Color DEFAULT_HIGHLIGHT_COLOR = Color.FromArgb(7, 123, 220);
+
+        private readonly RegistrySecurity registrySecurity = new RegistrySecurity();
 
         private Color styleColor;
 
         public Randomizer()
         {
             InitializeComponent();
+            registrySecurity.AddAccessRule(new RegistryAccessRule($"{Environment.UserDomainName}\\{Environment.UserName}",
+            RegistryRights.SetValue, InheritanceFlags.None, PropagationFlags.None, AccessControlType.Allow));
         }
 
         #region Application Components
@@ -126,14 +135,9 @@ This application was designed and coded by Davoleo",
                 case 's':
                 case 'S':
                     Color currentColor = GetCurrentSelectionColor();
-
                     ChangeSelectionColor(styleColor == currentColor
-                        ? Color.FromArgb(7, 123, 220)
+                        ? DEFAULT_HIGHLIGHT_COLOR
                         : styleColor);
-
-                    MessageBox.Show(styleColor == currentColor
-                        ? "Windows Highlight Color has been restored to its original state!"
-                        : "Windows Highlight Color has been updated to match the current style color!");
                     break;
                 default:
                     if (!(sender is NumericUpDown))
@@ -198,38 +202,79 @@ This application was designed and coded by Davoleo",
 
         #region Highlight Color Change Functions
 
-        [DllImport("user32.dll")]
-        static extern bool SetSysColors(int cElements, int[] lpaElements, uint[] lpaRgbValues);
-
         /// <summary>
         /// Changes the Default Windows Selection color to the passed parameter
         /// </summary>
         /// <param name="color">The new value applied as highlight color</param>
         private void ChangeSelectionColor(Color color)
         {
-            //const int COLOR_HIGHLIGHTTEXT = 14;
-            // You will have to set the HighlightText colour if you want to change that as well.
+            int intColor = ColorTranslator.ToWin32(color);
 
+            try
+            {
+                RegistryKey colorScheme =
+                    Registry.LocalMachine.OpenSubKey(
+                        "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Themes\\DefaultColors\\Standard", true);
 
-            //array of elements to change
-            int[] elements = { COLOR_HIGHLIGHT };
+                colorScheme.SetValue("Hilight", intColor, RegistryValueKind.DWord);
+                colorScheme.SetValue("HilightText", color.GetBrightness() > 0.5 ? 0x0 : 0xFFFFFF,
+                    RegistryValueKind.DWord);
+            }
+            catch (SecurityException)
+            {
+                DialogResult securityResult = MessageBox.Show(
+                    "Security Exception! You need to run this app with administrator privileges to do this!",
+                    "Randomizer", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
 
+                if (securityResult == DialogResult.Retry)
+                {
+                    ProcessStartInfo process = new ProcessStartInfo();
+                    process.UseShellExecute = true;
+                    process.FileName = Application.ExecutablePath;
+                    process.Verb = "runas";
+                    try
+                    {
+                        Process.Start(process);
+                    }
+                    catch
+                    {
+                        //User Refused the elevation -> return;
+                        return;
+                    }
 
-            List<uint> colours = new List<uint>();
-            colours.Add((uint)ColorTranslator.ToWin32(color));
+                    Application.Exit();
+                }
+                return;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error while Editing Registry values");
+                return;
+            }
 
-            //set the desktop color using p/invoke
-            SetSysColors(elements.Length, elements, colours.ToArray());
+            const string question = "\nDo you want to Lock and Unlock your account to apply the changes?";
+            DialogResult result = MessageBox.Show(color == DEFAULT_HIGHLIGHT_COLOR
+                ? ("Windows Highlight Color has been restored to its original state!" + question)
+                : ("Windows Highlight Color has been updated to match the current style color!" + question), 
+                "Randomizer", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
+            if (result == DialogResult.Yes)
+                LockWorkStation();
+                
         }
 
         [DllImport("user32.dll")]
-        static extern uint GetSysColor(int nIndex);
+        private static extern uint GetSysColor(int nIndex);
+
+        [DllImport("user32.dll")]
+        internal static extern void LockWorkStation();
 
         /// <summary>
         /// </summary>
         /// <returns>The current highlight color</returns>
         private Color GetCurrentSelectionColor()
         {
+            const int COLOR_HIGHLIGHT = 13;
             return ColorTranslator.FromWin32((int) GetSysColor(COLOR_HIGHLIGHT));
         }
 
