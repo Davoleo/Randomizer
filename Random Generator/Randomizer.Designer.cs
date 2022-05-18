@@ -51,7 +51,7 @@
             this.btnGen.Text = "Generate";
             this.btnGen.UseVisualStyleBackColor = false;
             this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
-            this.btnGen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
+            this.btnGen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Randomizer_KeyDown);
             // 
             // lblResult
             // 
@@ -77,7 +77,7 @@
             this.btnMin.Text = "_";
             this.btnMin.UseVisualStyleBackColor = false;
             this.btnMin.Click += new System.EventHandler(this.btnMin_Click);
-            this.btnMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
+            this.btnMin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Randomizer_KeyDown);
             // 
             // btnClose
             // 
@@ -92,7 +92,7 @@
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.button1_Click);
-            this.btnClose.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
+            this.btnClose.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Randomizer_KeyDown);
             // 
             // btnHelp
             // 
@@ -107,7 +107,7 @@
             this.btnHelp.Text = "?";
             this.btnHelp.UseVisualStyleBackColor = false;
             this.btnHelp.Click += new System.EventHandler(this.BtnHelp_Click);
-            this.btnHelp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
+            this.btnHelp.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Randomizer_KeyDown);
             // 
             // intInput
             // 
@@ -132,7 +132,7 @@
             0,
             0,
             0});
-            this.intInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
+            this.intInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Randomizer_KeyDown);
             // 
             // Randomizer
             // 
@@ -155,7 +155,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Random";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Randomizer_KeyPress);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Randomizer_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.intInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

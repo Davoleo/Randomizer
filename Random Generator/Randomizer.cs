@@ -64,10 +64,10 @@ namespace Random_Generator
         private void BtnHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show(@"Special Function keys:
-1. 'h' Copies the current color hex code to the clipboard
-2. 'r' Refreshes application style color
-3. 'g' Clicks the 'Generate' button
-4. 's' Sets the current style color as default text highlight color
+1. <Ctrl + H> Copies the current style color hex code to the clipboard
+2. <Ctrl + R> Refreshes application style color
+3. <Ctrl + G> Generates a new Random Number
+4. <Ctrl + S> Sets the current style color as default text highlight color
 
 This application was designed and coded by Davoleo", 
 
@@ -109,35 +109,45 @@ This application was designed and coded by Davoleo",
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Randomizer_KeyPress(object sender, KeyPressEventArgs e)
+        private void Randomizer_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.KeyChar)
+            // The Event corresponds to pressing of Control key (but it should be treated as a dead key so we ignore events coming from it)
+            if (e.KeyCode == Keys.ControlKey)
+                return;
+
+            //If Control is not pressed in the key combo -> ignore the combo (decreases pollution of Message Boxes)
+            if (!e.Control)
+                return;
+
+            e.Handled = true;
+            switch (e.KeyCode)
             {
                 //Saves the style colour hexadecimal code in the clipboard
-                case 'h':
-                case 'H':
+                case Keys.H:
                     string colorText = styleColor.R.ToString("X2") + styleColor.G.ToString("X2") + styleColor.B.ToString("X2");
                     Clipboard.SetText(colorText);
                     MessageBox.Show("Application color RGB Hex value copied in clipboard", "Data Copied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 //Generates a new random style color
-                case 'r':
-                case 'R':
+                case Keys.R:
                     styleColor = generateRandomColor();
                     initColors();
                     MessageBox.Show("Syle Color Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 //Triggers the "Generate" button
-                case 'g':
-                case 'G':
+                case Keys.G:
                     btnGen_Click(sender, e);
                     break;
-                case 's':
-                case 'S':
-                    Color currentColor = GetCurrentSelectionColor();
-                    ChangeSelectionColor(styleColor == currentColor
-                        ? DEFAULT_HIGHLIGHT_COLOR
-                        : styleColor);
+                case Keys.S:
+                    DialogResult result = MessageBox.Show("Are you sure you want to change the text highlight color?",
+                        "Randomizer", MessageBoxButtons.OKCancel);
+                    if (result == DialogResult.OK)
+                    {
+                        Color currentColor = GetCurrentSelectionColor();
+                        ChangeSelectionColor(styleColor == currentColor
+                            ? DEFAULT_HIGHLIGHT_COLOR
+                            : styleColor);
+                    }
                     break;
                 default:
                     if (!(sender is NumericUpDown))
