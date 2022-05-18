@@ -20,6 +20,7 @@
 
     self.formatter.allowsFloats = NO;
     self.maxBound = 1;
+    self.formatter.nilSymbol = @"1";
 }
 
 - (IBAction)generate:(NSButton *)sender {
