@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
+using System.Media;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.AccessControl;
@@ -26,11 +27,15 @@ namespace Random_Generator
 
         private Color styleColor;
 
+        private Random random;
+
         public Randomizer()
         {
             InitializeComponent();
             registrySecurity.AddAccessRule(new RegistryAccessRule($"{Environment.UserDomainName}\\{Environment.UserName}",
             RegistryRights.SetValue, InheritanceFlags.None, PropagationFlags.None, AccessControlType.Allow));
+
+            random = new Random();
         }
 
         #region Application Components
@@ -68,6 +73,7 @@ namespace Random_Generator
 2. <Ctrl + R> Refreshes application style color
 3. <Ctrl + G> Generates a new Random Number
 4. <Ctrl + S> Sets the current style color as default text highlight color
+5. <Ctrl + D> Resets the Random instance with a new seed based on current time
 
 This application was designed and coded by Davoleo", 
 
@@ -81,9 +87,11 @@ This application was designed and coded by Davoleo",
         /// <param name="e"></param>
         private void btnGen_Click(object sender, EventArgs e)
         {
-            Random r = new Random(); 
             if (intInput != null)
-                lblResult.Text = r.Next(1, (int) intInput.Value + 1).ToString();
+            {
+                lblResult.Text = random.Next(1, (int)intInput.Value + 1).ToString();
+                SystemSounds.Beep.Play();
+            }
             else
                 MessageBox.Show("Invalid Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -132,7 +140,7 @@ This application was designed and coded by Davoleo",
                 case Keys.R:
                     styleColor = generateRandomColor();
                     initColors();
-                    MessageBox.Show("Syle Color Refreshed", "Succesful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SystemSounds.Asterisk.Play();
                     break;
                 //Triggers the "Generate" button
                 case Keys.G:
@@ -148,6 +156,10 @@ This application was designed and coded by Davoleo",
                             ? DEFAULT_HIGHLIGHT_COLOR
                             : styleColor);
                     }
+                    break;
+                case Keys.D:
+                    random = new Random();
+                    MessageBox.Show("Random seed successfully reloaded", "New Seed Generated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 default:
                     if (!(sender is NumericUpDown))
@@ -188,8 +200,7 @@ This application was designed and coded by Davoleo",
         /// <returns>A random RGB color</returns>
         private Color generateRandomColor()
         {
-            Random r = new Random();
-            return Color.FromArgb(r.Next(256), r.Next(256), r.Next(256));
+            return Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
         }
 
         /// <summary>
